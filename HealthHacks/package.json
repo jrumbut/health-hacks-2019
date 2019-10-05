@@ -11,7 +11,8 @@
   "dependencies": {
     "react": "16.9.0",
     "react-native": "0.61.2",
-    "react-native-calendars": "^1.212.0"
+    "react-native-calendars": "^1.212.0",
+    "hoist-non-react-statics": "*"
   },
   "devDependencies": {
     "@babel/core": "^7.5.0",
