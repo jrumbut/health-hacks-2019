@@ -113,59 +113,6 @@ const HomeScreen: () => React$Node = () => {
     </>
   );
 };
-class SettingsScreen extends Component{
-  //state object
-  state = { toggle: false };
-
-  render() {
-    return (
-        <View>
-            <Text>Yeah text</Text>
-            <ToggleSwitch
-              isOn={this.state.toggle}
-              onColor="green"
-              label="Notification"
-              labelStyle={{ color: "black", fontWeight: "900" }}
-              size="large"
-              onToggle={isOn => this.setState({ toggle: isOn })}
-            />
-            <Button
-              title="Alarm"
-              onPress={() => Alert.alert('Simple Button pressed')}
-            />
-            <Button
-              title="Smarthome Link"
-              onPress={() => Alert.alert('Simple Button pressed')}
-            />
-            <Button
-              title="Darkmode"
-              onPress={() => Alert.alert('Simple Button pressed')}
-            />
-            <Button
-              title="Font Size"
-              onPress={() => Alert.alert('Simple Button pressed')}
-            />
-            <Button
-              title="Font Color"
-              onPress={() => Alert.alert('Simple Button pressed')}
-            />
-            <Button
-              title="Calendar Background Color"
-              onPress={() => Alert.alert('Simple Button pressed')}
-            />
-            <Button
-              title="Date Format"
-              onPress={() => Alert.alert('Simple Button pressed')}
-            />
-            <Button
-              title="Week Start"
-              onPress={() => Alert.alert('Simple Button pressed')}
-            />
-        </View>
-    );
-  }
-}
-
 
 const styles = StyleSheet.create({
   scrollView: {
