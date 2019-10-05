@@ -44,13 +44,9 @@ const HomeScreen: () => React$Node = () => {
           contentInsetAdjustmentBehavior="automatic"
           style={styles.scrollView}>
           <Header />
-          {global.HermesInternal == null ? null : (
-            <View style={styles.engine}>
-              <Text style={styles.footer}>Engine: Hermes</Text>
-            </View>
-          )}
           <View style={styles.body}>
             <View style={styles.sectionContainer}>
+
       <Calendar
   // Initially visible month. Default = Date()
   current={'2012-03-01'}
@@ -117,6 +113,59 @@ const HomeScreen: () => React$Node = () => {
     </>
   );
 };
+class SettingsScreen extends Component{
+  //state object
+  state = { toggle: false };
+
+  render() {
+    return (
+        <View>
+            <Text>Yeah text</Text>
+            <ToggleSwitch
+              isOn={this.state.toggle}
+              onColor="green"
+              label="Notification"
+              labelStyle={{ color: "black", fontWeight: "900" }}
+              size="large"
+              onToggle={isOn => this.setState({ toggle: isOn })}
+            />
+            <Button
+              title="Alarm"
+              onPress={() => Alert.alert('Simple Button pressed')}
+            />
+            <Button
+              title="Smarthome Link"
+              onPress={() => Alert.alert('Simple Button pressed')}
+            />
+            <Button
+              title="Darkmode"
+              onPress={() => Alert.alert('Simple Button pressed')}
+            />
+            <Button
+              title="Font Size"
+              onPress={() => Alert.alert('Simple Button pressed')}
+            />
+            <Button
+              title="Font Color"
+              onPress={() => Alert.alert('Simple Button pressed')}
+            />
+            <Button
+              title="Calendar Background Color"
+              onPress={() => Alert.alert('Simple Button pressed')}
+            />
+            <Button
+              title="Date Format"
+              onPress={() => Alert.alert('Simple Button pressed')}
+            />
+            <Button
+              title="Week Start"
+              onPress={() => Alert.alert('Simple Button pressed')}
+            />
+        </View>
+    );
+  }
+}
+
 
 const styles = StyleSheet.create({
   scrollView: {
@@ -159,7 +208,6 @@ const styles = StyleSheet.create({
 
 
 const MainNavigator = createBottomTabNavigator({
-  Home: {screen: HomeScreen},
   Calendar: {screen: CalendarScreen},
   Settings: {screen: SettingsScreen},
   Report: {screen: ReportScreen},
