@@ -5,6 +5,8 @@ import {
   StyleSheet,
   ScrollView,
   View,
+  Button,
+  Alert,
   Text,
   StatusBar,
 } from 'react-native';
@@ -24,6 +26,22 @@ const ReportScreen: () => React$Node = () => {
     return (
         <View>
             <Text>Yeah text Report</Text>
+            <Button
+              title="Daily Report"
+              onPress={() => Alert.alert('Simple Button pressed')}
+            />
+            <Button
+              title="Weekly Report"
+              onPress={() => Alert.alert('Simple Button pressed')}
+            />
+            <Button
+              title="Monthly Report"
+              onPress={() => Alert.alert('Simple Button pressed')}
+            />
+            <Button
+              title="Overview"
+              onPress={() => Alert.alert('Simple Button pressed')}
+            />
         </View>
     );
 };

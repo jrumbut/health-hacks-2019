@@ -5,6 +5,8 @@ import {
   StyleSheet,
   ScrollView,
   View,
+  Button,
+  Alert,
   Text,
   StatusBar,
 } from 'react-native';
@@ -24,6 +26,26 @@ const AdviceScreen: () => React$Node = () => {
     return (
         <View>
             <Text>Yeah text advice</Text>
+            <Button
+              title="Groups"
+              onPress={() => Alert.alert('Simple Button pressed')}
+            />
+            <Button
+              title="Following"
+              onPress={() => Alert.alert('Simple Button pressed')}
+            />
+            <Button
+              title="Physician Recommendation"
+              onPress={() => Alert.alert('Simple Button pressed')}
+            />
+            <Button
+              title="Your Physician"
+              onPress={() => Alert.alert('Simple Button pressed')}
+            />
+            <Button
+              title="Your Story"
+              onPress={() => Alert.alert('Simple Button pressed')}
+            />
         </View>
     );
 };
