@@ -30,6 +30,8 @@ import {
 
 import CalendarScreen from './Calendar';
 import SettingsScreen from './Settings';
+import ReportScreen from './Report';
+import AdviceScreen from './Advice';
 
 
 
@@ -159,7 +161,9 @@ const styles = StyleSheet.create({
 const MainNavigator = createBottomTabNavigator({
   Home: {screen: HomeScreen},
   Calendar: {screen: CalendarScreen},
-  Settings: {screen: SettingsScreen}
+  Settings: {screen: SettingsScreen},
+  Report: {screen: ReportScreen},
+  Advice: {screen: AdviceScreen}
 });
 
 const App = createAppContainer(MainNavigator);
