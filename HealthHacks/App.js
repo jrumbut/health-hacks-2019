@@ -6,6 +6,9 @@
  * @flow
  */
 
+import {createAppContainer} from 'react-navigation';
+import {createStackNavigator} from 'react-navigation-stack';
+import { createBottomTabNavigator } from 'react-navigation-tabs';
 import {Calendar, CalendarList, Agenda} from 'react-native-calendars';
 import React from 'react';
 import {
@@ -25,9 +28,12 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
+import CalendarScreen from './Calendar';
+import SettingsScreen from './Settings';
 
 
-const App: () => React$Node = () => {
+
+const HomeScreen: () => React$Node = () => {
   return (
     <>
       <StatusBar barStyle="dark-content" />
@@ -148,5 +154,14 @@ const styles = StyleSheet.create({
     textAlign: 'right',
   },
 });
+
+
+const MainNavigator = createBottomTabNavigator({
+  Home: {screen: HomeScreen},
+  Calendar: {screen: CalendarScreen},
+  Settings: {screen: SettingsScreen}
+});
+
+const App = createAppContainer(MainNavigator);
 
 export default App;
