@@ -29,8 +29,12 @@ class SettingsScreen extends Component{
 
   render() {
     return (
+      <>
+        <View style = {styles.titleBackground}>
+        <Text style={styles.title}>Personal Sleep Advisor</Text>
+        </View>
         <View>
-            <Text>Yeah text</Text>
+          <View style={styles.button}>
             <ToggleSwitch
               isOn={this.state.toggle}
               onColor="green"
@@ -39,41 +43,73 @@ class SettingsScreen extends Component{
               size="large"
               onToggle={isOn => this.setState({ toggle: isOn })}
             />
+          </View>
+          <View style={styles.button}>
             <Button
               title="Alarm"
               onPress={() => Alert.alert('Simple Button pressed')}
             />
+          </View>
+          <View style={styles.button}>
             <Button
               title="Smarthome Link"
               onPress={() => Alert.alert('Simple Button pressed')}
             />
+          </View>
+          <View style={styles.button}>
             <Button
               title="Darkmode"
               onPress={() => Alert.alert('Simple Button pressed')}
             />
+          </View>
+          <View style={styles.button}>
             <Button
               title="Font Size"
               onPress={() => Alert.alert('Simple Button pressed')}
             />
+          </View>
+          <View style={styles.button}>
             <Button
               title="Font Color"
               onPress={() => Alert.alert('Simple Button pressed')}
             />
+          </View>
+          <View style={styles.button}>
             <Button
               title="Calendar Background Color"
               onPress={() => Alert.alert('Simple Button pressed')}
             />
+          </View>
+          <View style={styles.button}>
             <Button
               title="Date Format"
               onPress={() => Alert.alert('Simple Button pressed')}
             />
+          </View>
+          <View style={styles.button}>
             <Button
               title="Week Start"
               onPress={() => Alert.alert('Simple Button pressed')}
             />
+          </View>
         </View>
+        </>
     );
-  }
+  };
 }
+
+const styles = StyleSheet.create({
+  title: {
+    fontSize: 40,
+    textAlign: "center",
+    color: "cornflowerblue",
+  },
+  titleBackground: {
+    backgroundColor: "white",
+  },
+  button: {
+      margin: 10,
+  },
+});
 
 export default SettingsScreen;

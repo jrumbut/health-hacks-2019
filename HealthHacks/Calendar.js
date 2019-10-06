@@ -38,23 +38,163 @@ class CalendarScreen extends Component{
       const events = [
                       {
                         id: 1,
-                        description: 'Event 1',
-                        startDate: this.generateDates(0),
-                        endDate: this.generateDates(2),
+                        description: 'Sleep',
+                        startDate: this.generateDates(10),
+                        endDate: this.generateDates(18),
                         color: 'blue',
                       },
                       {
                         id: 2,
-                        description: 'Event 2',
-                        startDate: this.generateDates(1),
-                        endDate: this.generateDates(4),
-                        color: 'red',
+                        description: 'Sleep',
+                        startDate: this.generateDates(34),
+                        endDate: this.generateDates(42),
+                        color: 'blue',
                       },
                       {
                         id: 3,
-                        description: 'Event 3',
+                        description: 'Sleep',
+                        startDate: this.generateDates(58),
+                        endDate: this.generateDates(66),
+                        color: 'blue',
+                      },
+                      {
+                        id: 4,
+                        description: 'Sleep',
+                        startDate: this.generateDates(82),
+                        endDate: this.generateDates(90),
+                        color: 'blue',
+                      },
+                      {
+                        id: 5,
+                        description: 'Sleep',
+                        startDate: this.generateDates(106),
+                        endDate: this.generateDates(114),
+                        color: 'blue',
+                      },
+                      {
+                        id: 6,
+                        description: 'Sleep',
+                        startDate: this.generateDates(130),
+                        endDate: this.generateDates(138),
+                        color: 'blue',
+                      },
+                      {
+                        id: 7,
+                        description: 'Sleep',
+                        startDate: this.generateDates(154),
+                        endDate: this.generateDates(162),
+                        color: 'blue',
+                      },
+                      {
+                        id: 8,
+                        description: 'Sleep',
+                        startDate: this.generateDates(178),
+                        endDate: this.generateDates(186),
+                        color: 'blue',
+                      },
+                      {
+                        id: 9,
+                        description: 'Sleep',
+                        startDate: this.generateDates(-14),
+                        endDate: this.generateDates(-6),
+                        color: 'blue',
+                      },
+                      {
+                        id: 10,
+                        description: 'Sleep',
+                        startDate: this.generateDates(154),
+                        endDate: this.generateDates(162),
+                        color: 'blue',
+                      },
+                      {
+                        id: 17,
+                        description: 'Traveling',
                         startDate: this.generateDates(-5),
-                        endDate: this.generateDates(-3),
+                        endDate: this.generateDates(-2),
+                        color: 'aqua',
+                      },
+                      {
+                        id: 11,
+                        description: 'HealthHacks',
+                        startDate: this.generateDates(0),
+                        endDate: this.generateDates(6),
+                        color: 'aqua',
+                      },
+                      {
+                        id: 12,
+                        description: 'Traveling',
+                        startDate: this.generateDates(6),
+                        endDate: this.generateDates(8),
+                        color: 'aqua',
+                      },
+                      {
+                        id: 23,
+                        description: 'Lunch',
+                        startDate: this.generateDates(-1),
+                        endDate: this.generateDates(0),
+                        color: 'green',
+                      },
+                      {
+                        id: 13,
+                        description: 'Dinner',
+                        startDate: this.generateDates(8),
+                        endDate: this.generateDates(9,45),
+                        color: 'green',
+                      },
+                      {
+                        id: 14,
+                        description: 'Studying',
+                        startDate: this.generateDates(20),
+                        endDate: this.generateDates(30),
+                        color: 'aqua',
+                      },
+                      {
+                        id: 15,
+                        description: 'EAS501',
+                        startDate: this.generateDates(30),
+                        endDate: this.generateDates(32,15),
+                        color: 'aqua',
+                      },
+                      {
+                        id: 16,
+                        description: 'Gym',
+                        startDate: this.generateDates(32,30),
+                        endDate: this.generateDates(33,30),
+                        color: 'green',
+                      },
+                      {
+                        id: 18,
+                        description: 'Meeting',
+                        startDate: this.generateDates(44),
+                        endDate: this.generateDates(45,30),
+                        color: 'red',
+                      },
+                      {
+                        id: 19,
+                        description: 'ECE570',
+                        startDate: this.generateDates(48),
+                        endDate: this.generateDates(50,15),
+                        color: 'aqua',
+                      },
+                      {
+                        id: 20,
+                        description: 'CIS560',
+                        startDate: this.generateDates(52,30),
+                        endDate: this.generateDates(54,45),
+                        color: 'aqua',
+                      },
+                      {
+                        id: 21,
+                        description: 'Gym',
+                        startDate: this.generateDates(55),
+                        endDate: this.generateDates(56,30),
+                        color: 'green',
+                      },
+                      {
+                        id: 22,
+                        description: 'Lunch',
+                        startDate: this.generateDates(46),
+                        endDate: this.generateDates(46,45),
                         color: 'green',
                       },
                     ];
@@ -65,7 +205,9 @@ class CalendarScreen extends Component{
             <ScrollView
             contentInsetAdjustmentBehavior="automatic"
             style={styles.scrollView}>
-            <Header />
+            <View style = {styles.titleBackground}>
+            <Text style={styles.title}>Personal Sleep Advisor</Text>
+            </View>
             <View style={styles.body}>
             <View style={styles.sectionContainer}>
             <Calendar
@@ -109,30 +251,31 @@ class CalendarScreen extends Component{
               <WeekView
                 events={events}
                 selectedDate={this.selectedDate}
-                numberOfDays={7}
+                numberOfDays={3}
                 onEventPress={(event) => Alert.alert('eventId:' + event.id)}
                 headerStyle={styles.headerStyle}
                 formatDateHeader="MMM D"
               />
             </View>
-            <Button
-              title="Add Event"
-              onPress={() => Alert.alert('Simple Button pressed')}
-            />
             <View style={styles.button}>
-            <Button
-            title="Add Travel"
-            onPress={() => Alert.alert('Simple Button pressed')}
-            />
+              <Button
+                title="Add Event"
+                onPress={() => Alert.alert('Simple Button pressed')}
+              />
+            </View>
+            <View style={styles.button}>
+              <Button
+              title="Add Travel"
+              onPress={() => Alert.alert('Simple Button pressed')}
+              />
             </View>
             </View>
-            <LearnMoreLinks />
             </View>
             </ScrollView>
             </SafeAreaView>
             </>
         );
-    }
+    };
 }
 
 const styles = StyleSheet.create({
@@ -173,7 +316,8 @@ const styles = StyleSheet.create({
     textAlign: 'right',
   },
     button: {
-        margin: 10,
+        margin: 30,
+        marginBottom: 10,
     },
     container: {
     flex: 1,
@@ -182,6 +326,14 @@ const styles = StyleSheet.create({
   },
   headerStyle: {
     backgroundColor: '#4286f4',
+  },
+  title: {
+    fontSize: 40,
+    textAlign: "center",
+    color: "cornflowerblue",
+  },
+  titleBackground: {
+    backgroundColor: "white",
   },
 });
 
