@@ -1,10 +1,12 @@
 import {Calendar, CalendarList, Agenda} from 'react-native-calendars';
 import React, {Component} from 'react';
+import WeekView from 'react-native-week-view';
 import {
     SafeAreaView,
     StyleSheet,
     ScrollView,
     View,
+    Alert,
     Text,
     StatusBar,
     Button,
@@ -21,8 +23,41 @@ import {
 class CalendarScreen extends Component{
     //state object
     state = { toggle: false };
+    selectedDate = new Date();
+
+    generateDates = (hours, minutes) => {
+      const date = new Date();
+      date.setHours(date.getHours() + hours);
+      if (minutes != null) {
+        date.setMinutes(minutes);
+      }
+      return date;
+    };
 
     render() {
+      const events = [
+                      {
+                        id: 1,
+                        description: 'Event 1',
+                        startDate: this.generateDates(0),
+                        endDate: this.generateDates(2),
+                        color: 'blue',
+                      },
+                      {
+                        id: 2,
+                        description: 'Event 2',
+                        startDate: this.generateDates(1),
+                        endDate: this.generateDates(4),
+                        color: 'red',
+                      },
+                      {
+                        id: 3,
+                        description: 'Event 3',
+                        startDate: this.generateDates(-5),
+                        endDate: this.generateDates(-3),
+                        color: 'green',
+                      },
+                    ];
         return (
             <>
             <StatusBar barStyle="dark-content" />
@@ -69,11 +104,21 @@ class CalendarScreen extends Component{
             onPressArrowRight={addMonth => addMonth()}
             />
             <View style={styles.button}>
-            <Button
-            title="Add Event"
-            onPress={() => Alert.alert('Simple Button pressed')}
-            />
             </View>
+            <View style={styles.container}>
+              <WeekView
+                events={events}
+                selectedDate={this.selectedDate}
+                numberOfDays={7}
+                onEventPress={(event) => Alert.alert('eventId:' + event.id)}
+                headerStyle={styles.headerStyle}
+                formatDateHeader="MMM D"
+              />
+            </View>
+            <Button
+              title="Add Event"
+              onPress={() => Alert.alert('Simple Button pressed')}
+            />
             <View style={styles.button}>
             <Button
             title="Add Travel"
@@ -130,6 +175,14 @@ const styles = StyleSheet.create({
     button: {
         margin: 10,
     },
+    container: {
+    flex: 1,
+    backgroundColor: '#FFF',
+    paddingTop: 22,
+  },
+  headerStyle: {
+    backgroundColor: '#4286f4',
+  },
 });
 
 
